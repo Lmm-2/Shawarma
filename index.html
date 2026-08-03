@@ -7,9 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #d97706; /* برتقالي ذهبي دافئ ومشهي */
+      --primary: #d97706;
       --primary-hover: #b45309;
-      --bg-color: #fdfbf7; /* خلفية فاتحة ونظيفة */
+      --bg-color: #fdfbf7;
       --card-bg: #ffffff;
       --text-main: #2d3748;
       --accent-soft: #fffbeb;
@@ -36,8 +36,8 @@
     .card {
       background: var(--card-bg);
       width: 100%;
-      max-width: 480px;
-      padding: 35px 28px;
+      max-width: 500px;
+      padding: 30px 24px;
       border-radius: 24px;
       box-shadow: 0 15px 35px rgba(217, 119, 6, 0.08);
       border: 1.5px solid var(--border-color);
@@ -63,21 +63,20 @@
     .welcome-screen h1 {
       color: #1a202c;
       margin-bottom: 12px;
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       font-weight: 800;
     }
 
     .welcome-screen p {
       color: #4a5568;
-      margin-bottom: 30px;
-      font-size: 1.05rem;
+      margin-bottom: 25px;
+      font-size: 1rem;
       line-height: 1.6;
     }
 
     .emoji-banner {
-      font-size: 4.5rem;
-      margin-bottom: 15px;
-      display: inline-block;
+      font-size: 4rem;
+      margin-bottom: 10px;
     }
 
     /* النموذج */
@@ -85,58 +84,85 @@
       display: none;
     }
 
+    .form-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
     .form-title {
-      text-align: center;
-      margin-bottom: 25px;
       color: #1a202c;
       font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
+    }
+
+    .back-btn {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .back-btn:hover {
+      background: #e2e8f0;
+    }
+
+    .sandwich-card {
+      background: #fafafa;
+      border: 1.5px solid #ebd9c4;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .sandwich-header {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      border-bottom: 2px dashed var(--border-color);
+      padding-bottom: 6px;
     }
 
     .section-title {
       font-weight: 700;
-      margin: 20px 0 12px;
-      color: var(--primary);
-      font-size: 1.05rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      margin: 12px 0 8px;
+      color: #4a5568;
+      font-size: 0.95rem;
     }
 
     .option-group {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 10px;
-      margin-bottom: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 8px;
+      margin-bottom: 10px;
     }
 
     .option-group label {
-      background: var(--accent-soft);
-      border: 1.5px solid #fef3c7;
-      padding: 12px 10px;
-      border-radius: 14px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      padding: 10px 8px;
+      border-radius: 12px;
       cursor: pointer;
-      transition: all 0.25s ease;
-      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
       font-weight: 600;
       text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       user-select: none;
-      color: #78350f;
-    }
-
-    .option-group input:checked + span {
-      color: #fff;
+      color: #4a5568;
     }
 
     .option-group label:has(input:checked) {
       background: var(--primary);
       border-color: var(--primary);
       color: #fff;
-      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
-      transform: translateY(-2px);
+      box-shadow: 0 3px 10px rgba(217, 119, 6, 0.2);
     }
 
     .option-group input {
@@ -145,15 +171,14 @@
 
     .input-field {
       width: 100%;
-      padding: 14px 16px;
+      padding: 12px 14px;
       border: 1.5px solid #e2e8f0;
       background: #f8fafc;
-      border-radius: 14px;
+      border-radius: 12px;
       margin-top: 5px;
       margin-bottom: 15px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       outline: none;
-      transition: border-color 0.2s;
     }
 
     .input-field:focus {
@@ -166,20 +191,45 @@
       background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
       color: white;
       border: none;
-      padding: 16px;
+      padding: 15px;
       border-radius: 14px;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 6px 18px rgba(217, 119, 6, 0.25);
-      margin-top: 15px;
     }
 
     .btn:hover {
       background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(217, 119, 6, 0.35);
+    }
+
+    .qty-selector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin: 15px 0 25px;
+    }
+
+    .qty-btn {
+      background: var(--accent-soft);
+      border: 1.5px solid var(--border-color);
+      color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: bold;
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .qty-number {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-main);
+      width: 30px;
+      text-align: center;
     }
   </style>
 </head>
@@ -190,45 +240,35 @@
     <div id="welcomeScreen" class="welcome-screen">
       <div class="emoji-banner">🌯✨</div>
       <h1>أهلاً بكم في شاورما اليوم!</h1>
-      <p>جهّزت لكم أطيب شاورما منزلية.. اختاروا تفاصيل ساندويتشكم المفضلة ليصلني طلبكم مباشرة!</p>
-      <button class="btn" onclick="startOrder()">بدء اختيار الطلب 👈</button>
+      <p>جهّزت لكم أطيب شاورما منزلية.. اختاروا تفاصيل طلبكم ليجهز فوراً!</p>
+      
+      <div style="text-align: right; margin-bottom: 15px;">
+        <label style="font-weight: 700;">الاسم الكريم:</label>
+        <input type="text" id="userName" class="input-field" placeholder="اكتب اسمك هنا..." required>
+      </div>
+
+      <label style="font-weight: 800; font-size: 1.1rem; color: var(--primary);">كم سندويشة بدك تااكل؟ 🤔</label>
+      <div class="qty-selector">
+        <button class="qty-btn" onclick="changeQty(-1)">-</button>
+        <span id="sandwichQty" class="qty-number">1</span>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+
+      <button class="btn" onclick="generateSandwichForms()">بدء تخصيص السندويشات 👈</button>
     </div>
 
     <!-- نموذج الطلب -->
     <div id="formScreen" class="form-screen">
-      <h2 class="form-title">تخصيص الساندويتش 🥙</h2>
-      
+      <div class="form-header">
+        <h2 class="form-title">تخصيص الطلب 🥙</h2>
+        <button class="back-btn" onclick="goBackToQty()">تعديل العدد ↩️</button>
+      </div>
+
       <form id="shawarmaForm">
-        <!-- الاسم -->
-        <label style="font-weight: 700; color: #334155;">الاسم الكريم:</label>
-        <input type="text" id="userName" class="input-field" placeholder="اكتب اسمك هنا..." required>
+        <div id="sandwichesContainer"></div>
 
-        <!-- نوع الخبز -->
-        <div class="section-title">1. نوع الخبز:</div>
-        <div class="option-group">
-          <label><input type="radio" name="bread" value="تورتيلا" checked><span>تورتيلا</span></label>
-          <label><input type="radio" name="bread" value="صاج / شراك"><span>صاج / شراك</span></label>
-          <label><input type="radio" name="bread" value="خبز عادي (مسرح)"><span>خبز عادي</span></label>
-        </div>
-
-        <!-- الإضافات -->
-        <div class="section-title">2. الإضافات داخل الساندويتش:</div>
-        <div class="option-group">
-          <label><input type="checkbox" name="addons" value="مخلل"><span>مخلل 🥒</span></label>
-          <label><input type="checkbox" name="addons" value="بطاطا"><span>بطاطا 🍟</span></label>
-          <label><input type="checkbox" name="addons" value="دقوس (حار)"><span>دقوس حار 🌶️</span></label>
-        </div>
-
-        <!-- الصوصات -->
-        <div class="section-title">3. الثومية:</div>
-        <div class="option-group" style="grid-template-columns: 1fr 1fr;">
-          <label><input type="radio" name="garlic" value="مع ثومية" checked><span>مع ثومية 🧄</span></label>
-          <label><input type="radio" name="garlic" value="بدون ثومية"><span>بدون ثومية</span></label>
-        </div>
-
-        <!-- ملاحظات -->
-        <div class="section-title">ملاحظات إضافية (اختياري):</div>
-        <input type="text" id="notes" class="input-field" placeholder="مثال: اكتر ثومية، كبس زيادة...">
+        <div class="section-title" style="font-size: 1rem;">ملاحظات عامة للطلب (اختياري):</div>
+        <input type="text" id="notes" class="input-field" placeholder="مثال: كبس زيادة، حمر الخبز...">
 
         <button type="button" class="btn" onclick="sendToWhatsApp()">إرسال الطلب عبر الواتساب 📲</button>
       </form>
@@ -236,42 +276,90 @@
   </div>
 
   <script>
-    // استبدلي الرقم أدناه برقم هاتفكِ (مع المفتاح الدولي بدون علامة +)
-    const myPhoneNumber = "971505089503"; 
+    const myPhoneNumber = "971505089503"; // استبدلي الرقم برقمك الحقيقي
+    let currentQty = 1;
 
-    function startOrder() {
-      document.getElementById('welcomeScreen').style.display = 'none';
-      document.getElementById('formScreen').style.display = 'block';
+    function changeQty(amount) {
+      currentQty += amount;
+      if (currentQty < 1) currentQty = 1;
+      if (currentQty > 10) currentQty = 10;
+      document.getElementById('sandwichQty').innerText = currentQty;
     }
 
-    function sendToWhatsApp() {
+    function generateSandwichForms() {
       const name = document.getElementById('userName').value.trim();
       if (!name) {
         alert("لطفاً اكتب اسمك أولاً!");
         return;
       }
 
-      // نوع الخبز
-      const bread = document.querySelector('input[name="bread"]:checked').value;
+      const container = document.getElementById('sandwichesContainer');
+      container.innerHTML = '';
 
-      // الإضافات
-      const addons = Array.from(document.querySelectorAll('input[name="addons"]:checked'))
-                        .map(cb => cb.value);
-      const addonsText = addons.length > 0 ? addons.join('، ') : 'بدون إضافات';
+      for (let i = 1; i <= currentQty; i++) {
+        const swHTML = `
+          <div class="sandwich-card">
+            <div class="sandwich-header">🌯 السندويشة رقم (${i})</div>
+            
+            <div class="section-title">1. نوع الخبز:</div>
+            <div class="option-group">
+              <label><input type="radio" name="bread_${i}" value="تورتيلا" checked><span>تورتيلا</span></label>
+              <label><input type="radio" name="bread_${i}" value="صاج / شراك"><span>صاج / شراك</span></label>
+              <label><input type="radio" name="bread_${i}" value="خبز عادي"><span>خبز عادي</span></label>
+            </div>
 
-      // الثومية
-      const garlic = document.querySelector('input[name="garlic"]:checked').value;
+            <div class="section-title">2. الإضافات:</div>
+            <div class="option-group">
+              <label><input type="checkbox" name="addons_${i}" value="مخلل"><span>مخلل 🥒</span></label>
+              <label><input type="checkbox" name="addons_${i}" value="بطاطا"><span>بطاطا 🍟</span></label>
+              <label><input type="checkbox" name="addons_${i}" value="دقوس حار"><span>دقوس 🌶️</span></label>
+            </div>
 
-      // الملاحظات
+            <div class="section-title">3. الثومية:</div>
+            <div class="option-group" style="grid-template-columns: 1fr 1fr;">
+              <label><input type="radio" name="garlic_${i}" value="مع ثومية" checked><span>مع ثومية 🧄</span></label>
+              <label><input type="radio" name="garlic_${i}" value="بدون ثومية"><span>بدون ثومية</span></label>
+            </div>
+          </div>
+        `;
+        container.insertAdjacentHTML('beforeend', swHTML);
+      }
+
+      document.getElementById('welcomeScreen').style.display = 'none';
+      document.getElementById('formScreen').style.display = 'block';
+    }
+
+    function goBackToQty() {
+      document.getElementById('formScreen').style.display = 'none';
+      document.getElementById('welcomeScreen').style.display = 'block';
+    }
+
+    function sendToWhatsApp() {
+      const name = document.getElementById('userName').value.trim();
+      let detailsText = "";
+
+      for (let i = 1; i <= currentQty; i++) {
+        const bread = document.querySelector(`input[name="bread_${i}"]:checked`).value;
+        
+        const addons = Array.from(document.querySelectorAll(`input[name="addons_${i}"]:checked`))
+                          .map(cb => cb.value);
+        const addonsText = addons.length > 0 ? addons.join('، ') : 'بدون إضافات';
+
+        const garlic = document.querySelector(`input[name="garlic_${i}"]:checked`).value;
+
+        detailsText += `%0A🔹 *السندويشة (${i}):*%0A` +
+                       `• الخبز: ${bread}%0A` +
+                       `• الإضافات: ${addonsText}%0A` +
+                       `• الثومية: ${garlic}%0A`;
+      }
+
       const notes = document.getElementById('notes').value.trim() || 'لا يوجد';
 
-      // نص الرسالة
       const message = `طلب شاورما جديد 🌯✨%0A%0A` +
                       `👤 *الاسم:* ${name}%0A` +
-                      `🥖 *نوع الخبز:* ${bread}%0A` +
-                      `🥗 *الإضافات:* ${addonsText}%0A` +
-                      `🧄 *الثومية:* ${garlic}%0A` +
-                      `📝 *ملاحظات:* ${notes}`;
+                      `🔢 *عدد السندويشات:* ${currentQty}%0A` +
+                      `${detailsText}%0A` +
+                      `📝 *ملاحظات عامة:* ${notes}`;
 
       const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${message}`;
       window.open(whatsappUrl, '_blank');
