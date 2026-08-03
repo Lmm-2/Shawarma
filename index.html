@@ -36,7 +36,7 @@
     .card {
       background: var(--card-bg);
       width: 100%;
-      max-width: 500px;
+      max-width: 540px;
       padding: 30px 24px;
       border-radius: 24px;
       box-shadow: 0 15px 35px rgba(217, 119, 6, 0.08);
@@ -55,47 +55,14 @@
       background: linear-gradient(90deg, #f59e0b, #d97706, #b45309);
     }
 
-    /* صفحة الترحيب */
-    .welcome-screen {
-      text-align: center;
-    }
+    .welcome-screen { text-align: center; }
+    .welcome-screen h1 { color: #1a202c; margin-bottom: 12px; font-size: 1.8rem; font-weight: 800; }
+    .welcome-screen p { color: #4a5568; margin-bottom: 25px; font-size: 1rem; line-height: 1.6; }
+    .emoji-banner { font-size: 4rem; margin-bottom: 10px; }
 
-    .welcome-screen h1 {
-      color: #1a202c;
-      margin-bottom: 12px;
-      font-size: 1.8rem;
-      font-weight: 800;
-    }
-
-    .welcome-screen p {
-      color: #4a5568;
-      margin-bottom: 25px;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .emoji-banner {
-      font-size: 4rem;
-      margin-bottom: 10px;
-    }
-
-    /* النموذج */
-    .form-screen {
-      display: none;
-    }
-
-    .form-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .form-title {
-      color: #1a202c;
-      font-weight: 800;
-      font-size: 1.3rem;
-    }
+    .form-screen, .games-screen { display: none; }
+    .form-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .form-title { color: #1a202c; font-weight: 800; font-size: 1.3rem; }
 
     .back-btn {
       background: #f1f5f9;
@@ -106,11 +73,6 @@
       font-size: 0.85rem;
       font-weight: 700;
       cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .back-btn:hover {
-      background: #e2e8f0;
     }
 
     .sandwich-card {
@@ -130,12 +92,7 @@
       padding-bottom: 6px;
     }
 
-    .section-title {
-      font-weight: 700;
-      margin: 12px 0 8px;
-      color: #4a5568;
-      font-size: 0.95rem;
-    }
+    .section-title { font-weight: 700; margin: 12px 0 8px; color: #4a5568; font-size: 0.95rem; }
 
     .option-group {
       display: grid;
@@ -165,9 +122,7 @@
       box-shadow: 0 3px 10px rgba(217, 119, 6, 0.2);
     }
 
-    .option-group input {
-      display: none;
-    }
+    .option-group input { display: none; }
 
     .input-field {
       width: 100%;
@@ -181,11 +136,6 @@
       outline: none;
     }
 
-    .input-field:focus {
-      border-color: var(--primary);
-      background: #fff;
-    }
-
     .btn {
       width: 100%;
       background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
@@ -196,47 +146,74 @@
       font-size: 1.1rem;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.3s ease;
       box-shadow: 0 6px 18px rgba(217, 119, 6, 0.25);
+      margin-top: 10px;
     }
 
-    .btn:hover {
-      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    .btn-games {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.25);
     }
 
-    .qty-selector {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin: 15px 0 25px;
-    }
+    .qty-selector { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 15px 0 25px; }
+    .qty-btn { background: var(--accent-soft); border: 1.5px solid var(--border-color); color: var(--primary); font-size: 1.5rem; font-weight: bold; width: 45px; height: 45px; border-radius: 12px; cursor: pointer; }
+    .qty-number { font-size: 1.4rem; font-weight: 800; color: var(--text-main); width: 30px; text-align: center; }
 
-    .qty-btn {
-      background: var(--accent-soft);
-      border: 1.5px solid var(--border-color);
-      color: var(--primary);
-      font-size: 1.5rem;
-      font-weight: bold;
-      width: 45px;
-      height: 45px;
-      border-radius: 12px;
-      cursor: pointer;
+    .game-tab-btns { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 6px; 
+      margin-bottom: 15px; 
     }
-
-    .qty-number {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--text-main);
-      width: 30px;
+    .tab-btn { 
+      padding: 8px 2px; 
+      border: 1px solid var(--border-color); 
+      background: #fff; 
+      border-radius: 10px; 
+      font-weight: 700; 
+      cursor: pointer; 
+      font-size: 0.75rem;
       text-align: center;
     }
+    .tab-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .game-box { display: none; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 15px; text-align: center; }
+    .game-box.active { display: block; }
+
+    .clicker-btn {
+      width: 110px;
+      height: 110px;
+      border-radius: 55px;
+      background: #ef4444;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      margin: 15px auto;
+      box-shadow: 0 6px 15px rgba(239, 68, 68, 0.3);
+      display: block;
+    }
+    .clicker-btn:active { transform: scale(0.95); }
+
+    .memory-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 260px; margin: 15px auto; }
+    .memory-card { height: 55px; background: var(--primary); color: #fff; border-radius: 10px; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .memory-card.flipped { background: #fff; border: 2px solid var(--primary); }
+
+    .catcher-area { position: relative; width: 100%; height: 180px; background: #e2e8f0; border-radius: 12px; overflow: hidden; margin: 10px 0; }
+    .catcher-basket { position: absolute; bottom: 5px; width: 50px; height: 15px; background: var(--primary); border-radius: 8px; left: 50%; transform: translateX(-50%); }
+    .catcher-item { position: absolute; font-size: 1.4rem; }
+
+    .balance-bar { position: relative; width: 100%; height: 20px; background: #cbd5e1; border-radius: 10px; margin: 30px 0 15px; }
+    .balance-pointer { position: absolute; top: -15px; left: 50%; font-size: 1.8rem; transform: translateX(-50%); transition: left 0.05s linear; }
+
+    .builder-btn { background: #fff; border: 1.5px solid var(--border-color); padding: 8px 12px; border-radius: 10px; font-weight: 700; cursor: pointer; color: #4a5568; }
+    .sandwich-layer { background: var(--accent-soft); border: 1px solid var(--border-color); padding: 6px; border-radius: 8px; margin: 4px 0; font-weight: 700; color: var(--primary); font-size: 0.9rem; }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <!-- الشاشة الترحيبية -->
+    <!-- 1. الشاشة الترحيبية -->
     <div id="welcomeScreen" class="welcome-screen">
       <div class="emoji-banner">🌯✨</div>
       <h1>أهلاً بكم في شاورما اليوم!</h1>
@@ -255,9 +232,10 @@
       </div>
 
       <button class="btn" onclick="generateSandwichForms()">بدء تخصيص السندويشات 👈</button>
+      <button class="btn btn-games" onclick="openGames()">صالة الألعاب الفردية للتسلية 🎮</button>
     </div>
 
-    <!-- نموذج الطلب -->
+    <!-- 2. نموذج الطلب -->
     <div id="formScreen" class="form-screen">
       <div class="form-header">
         <h2 class="form-title">تخصيص الطلب 🥙</h2>
@@ -267,16 +245,129 @@
       <form id="shawarmaForm">
         <div id="sandwichesContainer"></div>
 
+        <div class="section-title" style="font-size: 1.05rem; color: var(--primary);">🥤 اختر المشروب البارد:</div>
+        <div class="option-group" style="grid-template-columns: repeat(3, 1fr);">
+          <label><input type="radio" name="drink" value="سفن اب" checked><span>سفن اب 🥤</span></label>
+          <label><input type="radio" name="drink" value="بيبسي"><span>بيبسي 🥤</span></label>
+          <label><input type="radio" name="drink" value="ميريندا"><span>ميريندا 🍊</span></label>
+        </div>
+
         <div class="section-title" style="font-size: 1rem;">ملاحظات عامة للطلب (اختياري):</div>
         <input type="text" id="notes" class="input-field" placeholder="مثال: كبس زيادة، حمر الخبز...">
 
         <button type="button" class="btn" onclick="sendToWhatsApp()">إرسال الطلب عبر الواتساب 📲</button>
+        <button type="button" class="btn btn-games" onclick="openGames()">العب عقبال ما يجهز الأكل 🎮</button>
       </form>
+    </div>
+
+    <!-- 3. قسم الألعاب الفردية -->
+    <div id="gamesScreen" class="games-screen">
+      <div class="form-header">
+        <h2 class="form-title">ألعاب التسلية (8 ألعاب) 🎮</h2>
+        <button class="back-btn" onclick="closeGames()">الرجوع للطلب ↩️</button>
+      </div>
+
+      <div class="game-tab-btns">
+        <button class="tab-btn active" onclick="switchGame('wheel')">العجلة 🎡</button>
+        <button class="tab-btn" onclick="switchGame('clicker')">السرعة ⚡</button>
+        <button class="tab-btn" onclick="switchGame('memory')">الذاكرة 🧠</button>
+        <button class="tab-btn" onclick="switchGame('guess')">الرقم 🔢</button>
+        <button class="tab-btn" onclick="switchGame('quiz')">اختبار ⏱️</button>
+        <button class="tab-btn" onclick="switchGame('catcher')">الجامع 🧺</button>
+        <button class="tab-btn" onclick="switchGame('builder')">الترتيب 🥙</button>
+        <button class="tab-btn" onclick="switchGame('balance')">التوازن ⚖️</button>
+      </div>
+
+      <!-- 1. عجلة الحظ -->
+      <div id="wheelGame" class="game-box active">
+        <h3>عجلة حظ الشاورما 🎡</h3>
+        <p style="font-size: 0.85rem; margin-bottom: 10px;">اضغطي واكتشفي نصيبك أو رسالتك اليوم!</p>
+        <div id="wheelResult" style="font-size: 1.05rem; font-weight: 800; min-height: 55px; color: var(--primary); margin:12px 0; display:flex; align-items:center; justify-content:center; background:#fff; padding:10px; border-radius:12px; border:1px dashed var(--border-color);">❓ اضغطي لفي العجلة!</div>
+        <button class="btn" onclick="spinWheel()">لفي العجلة!</button>
+      </div>
+
+      <!-- 2. النقر السريع -->
+      <div id="clickerGame" class="game-box">
+        <h3>تحدي السرعة (10 ثوانٍ) ⚡</h3>
+        <p style="font-size:0.85rem; color:#64748b;">اضغطي بأسرع ما عندك!</p>
+        <button class="clicker-btn" id="clickerBtn" onclick="handleClicker()">اضغطي!</button>
+        <p id="clickerTimer" style="font-weight:bold;">الوقت المتبقي: 10</p>
+        <p id="clickerScore" style="font-weight:bold; color:var(--primary);">النقرات: 0</p>
+        <button class="back-btn" onclick="resetClicker()" style="margin-top:8px;">إعادة</button>
+      </div>
+
+      <!-- 3. الذاكرة -->
+      <div id="memoryGame" class="game-box">
+        <h3>مطابقة أزواج الأكل 🥙</h3>
+        <div class="memory-board" id="memoryBoard"></div>
+        <button class="back-btn" onclick="initMemory()" style="margin-top: 8px;">لعبة جديدة</button>
+      </div>
+
+      <!-- 4. الرقم السري -->
+      <div id="guessGame" class="game-box">
+        <h3>تخمين الرقم (1-50) 🔢</h3>
+        <input type="number" id="guessInput" class="input-field" placeholder="رقم..." style="width:100px; text-align:center; margin:10px auto; display:block;">
+        <button class="back-btn" onclick="checkGuess()">تخمين</button>
+        <p id="guessResult" style="font-weight:bold; margin-top:10px; color:var(--primary);">-</p>
+        <button class="back-btn" onclick="resetGuess()" style="margin-top:8px;">رقم جديد</button>
+      </div>
+
+      <!-- 5. لعبة اختبار السرعة -->
+      <div id="quizGame" class="game-box">
+        <h3>اختبار السرعة ⏱️</h3>
+        <p id="quizQuestion" style="font-weight: bold; margin: 15px 0;">سؤال الاختبار سَيظهر هنا</p>
+        <div id="quizOptions" style="display: grid; gap: 8px; max-width: 220px; margin: 0 auto;"></div>
+        <p id="quizScore" style="margin-top: 10px; font-weight: bold; color: var(--primary);">النقاط: 0</p>
+      </div>
+
+      <!-- 6. لعبة جامع المكونات -->
+      <div id="catcherGame" class="game-box">
+        <h3>جامع المكونات 🧺</h3>
+        <p style="font-size: 0.8rem;">حركي السلة لالتقاط الشاورما والمخلل وتجنبي القنابل 💣</p>
+        <div class="catcher-area" id="catcherArea">
+          <div class="catcher-basket" id="catcherBasket"></div>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 15px;">
+          <button class="back-btn" onclick="moveBasket(-25)">◀️ يسار</button>
+          <button class="back-btn" onclick="moveBasket(25)">يمين ▶️</button>
+        </div>
+        <p id="catcherScore" style="margin-top: 8px; font-weight: bold; color: var(--primary);">النقاط: 0</p>
+        <button class="back-btn" onclick="startCatcherGame()" style="margin-top:5px;">بدء اللعب</button>
+      </div>
+
+      <!-- 7. لعبة ترتيب خطوات السندويشة (بدون أرقام) 🥙 -->
+      <div id="builderGame" class="game-box">
+        <h3>ترتيب خطوات السندويشة 🥙</h3>
+        <p style="font-size:0.8rem; margin-bottom: 10px;">اضغطي على المكونات بالترتيب الصحيح لتحضير الشاورما!</p>
+        
+        <div id="builderDisplay" style="min-height: 120px; background: #fff; border: 1.5px dashed var(--border-color); border-radius: 12px; padding: 10px; margin-bottom: 12px;"></div>
+
+        <div id="builderOptions" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;"></div>
+
+        <p id="builderResult" style="font-weight: bold; margin-top: 10px; color: var(--primary); min-height: 24px;">-</p>
+        <button class="back-btn" onclick="initBuilderGame()" style="margin-top: 5px;">إعادة المحاولة 🔄</button>
+      </div>
+
+      <!-- 8. لعبة تحدي التوازن -->
+      <div id="balanceGame" class="game-box">
+        <h3>تحدي توازن السندويشة ⚖️</h3>
+        <p style="font-size:0.8rem;">حافظي على وجود السندويشة بالمنتصف باستخدام الأزرار!</p>
+        <div class="balance-bar">
+          <div class="balance-pointer" id="balancePointer">🌯</div>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 15px;">
+          <button class="back-btn" onclick="adjustBalance(-8)">◀️ موازنة يسار</button>
+          <button class="back-btn" onclick="adjustBalance(8)">موازنة يمين ▶️</button>
+        </div>
+        <p id="balanceTimer" style="margin-top: 10px; font-weight: bold; color: var(--primary);">الصمود: 0 ثانية</p>
+        <button class="back-btn" onclick="startBalanceGame()" style="margin-top: 5px;">بدء التوازن</button>
+      </div>
+
     </div>
   </div>
 
   <script>
-    const myPhoneNumber = "971505089503"; // استبدلي الرقم برقمك الحقيقي
+    const myPhoneNumber = "971500000000"; 
     let currentQty = 1;
 
     function changeQty(amount) {
@@ -326,6 +417,7 @@
       }
 
       document.getElementById('welcomeScreen').style.display = 'none';
+      document.getElementById('gamesScreen').style.display = 'none';
       document.getElementById('formScreen').style.display = 'block';
     }
 
@@ -334,17 +426,307 @@
       document.getElementById('welcomeScreen').style.display = 'block';
     }
 
+    function openGames() {
+      document.getElementById('welcomeScreen').style.display = 'none';
+      document.getElementById('formScreen').style.display = 'none';
+      document.getElementById('gamesScreen').style.display = 'block';
+      resetClicker();
+      initMemory();
+      resetGuess();
+      initQuiz();
+      initBuilderGame();
+    }
+
+    function closeGames() {
+      document.getElementById('gamesScreen').style.display = 'none';
+      clearInterval(catcherInterval);
+      clearInterval(balanceInterval);
+      if(document.getElementById('sandwichesContainer').children.length > 0) {
+        document.getElementById('formScreen').style.display = 'block';
+      } else {
+        document.getElementById('welcomeScreen').style.display = 'block';
+      }
+    }
+
+    function switchGame(game) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.game-box').forEach(b => b.classList.remove('active'));
+      
+      const gamesMap = {'wheel':0, 'clicker':1, 'memory':2, 'guess':3, 'quiz':4, 'catcher':5, 'builder':6, 'balance':7};
+      const idx = gamesMap[game];
+      document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+      document.getElementById(game + 'Game').classList.add('active');
+    }
+
+    /* 1. عجلة الحظ */
+    const wheelQuotes = [
+      "سندويشتك راح تكون أطيب وحدة اليوم! 🌯✨",
+      "رح تأكل أصابعك وراها من اللذاذة! 👌",
+      "اليوم يوم السعد والمزاج العالي والشاورما! 🌟",
+      "ابتسامتك اليوم هي السر الحقيقي للخلطة! 😊",
+      "أول لقمة هي أحلى لقمة.. استمتع! 🌯😋",
+      "الشاورما هذه صُنعت بحب واهتمام خاص إلك! ❤️"
+    ];
+
+    function spinWheel() {
+      const res = document.getElementById('wheelResult');
+      res.innerText = "جاري اللف... 🎡";
+      setTimeout(() => {
+        const random = wheelQuotes[Math.floor(Math.random() * wheelQuotes.length)];
+        res.innerText = random;
+      }, 700);
+    }
+
+    /* 2. لعبة النقر */
+    let clickerScore = 0;
+    let clickerTimeLeft = 10;
+    let clickerTimer = null;
+    let clickerRunning = false;
+
+    function resetClicker() {
+      clearInterval(clickerTimer);
+      clickerScore = 0;
+      clickerTimeLeft = 10;
+      clickerRunning = false;
+      document.getElementById('clickerScore').innerText = "النقرات: 0";
+      document.getElementById('clickerTimer').innerText = "الوقت المتبقي: 10";
+      document.getElementById('clickerBtn').disabled = false;
+    }
+
+    function handleClicker() {
+      if(!clickerRunning) {
+        clickerRunning = true;
+        clickerTimer = setInterval(() => {
+          clickerTimeLeft--;
+          document.getElementById('clickerTimer').innerText = `الوقت المتبقي: ${clickerTimeLeft}`;
+          if(clickerTimeLeft <= 0) {
+            clearInterval(clickerTimer);
+            document.getElementById('clickerBtn').disabled = true;
+            document.getElementById('clickerTimer').innerText = "انتهى الوقت! 🎉";
+          }
+        }, 1000);
+      }
+      if(clickerTimeLeft > 0) {
+        clickerScore++;
+        document.getElementById('clickerScore').innerText = `النقرات: ${clickerScore}`;
+      }
+    }
+
+    /* 3. لعبة الذاكرة */
+    const icons = ['🌯', '🍟', '🥒', '🥤', '🌯', '🍟', '🥒', '🥤'];
+    let flippedCards = [];
+    function initMemory() {
+      const board = document.getElementById('memoryBoard');
+      board.innerHTML = '';
+      let shuffled = [...icons].sort(() => 0.5 - Math.random());
+      shuffled.forEach((icon, idx) => {
+        const card = document.createElement('div');
+        card.className = 'memory-card';
+        card.dataset.icon = icon;
+        card.dataset.id = idx;
+        card.innerText = '❓';
+        card.onclick = () => flipMemoryCard(card);
+        board.appendChild(card);
+      });
+    }
+    function flipMemoryCard(card) {
+      if(flippedCards.length < 2 && !card.classList.contains('flipped')) {
+        card.classList.add('flipped');
+        card.innerText = card.dataset.icon;
+        flippedCards.push(card);
+        if(flippedCards.length === 2) {
+          setTimeout(() => {
+            if(flippedCards[0].dataset.icon !== flippedCards[1].dataset.icon) {
+              flippedCards[0].classList.remove('flipped');
+              flippedCards[0].innerText = '❓';
+              flippedCards[1].classList.remove('flipped');
+              flippedCards[1].innerText = '❓';
+            }
+            flippedCards = [];
+          }, 600);
+        }
+      }
+    }
+
+    /* 4. الرقم السري */
+    let targetNum = 0;
+    function resetGuess() {
+      targetNum = Math.floor(Math.random() * 50) + 1;
+      document.getElementById('guessInput').value = '';
+      document.getElementById('guessResult').innerText = "خمني رقم بين 1 و 50!";
+    }
+    function checkGuess() {
+      const val = parseInt(document.getElementById('guessInput').value);
+      if(!val) return;
+      if(val === targetNum) {
+        document.getElementById('guessResult').innerText = "🎉 برافو! تخمين صح 100%";
+      } else if(val < targetNum) {
+        document.getElementById('guessResult').innerText = "الرقم المطلوب أكبر ⬆️";
+      } else {
+        document.getElementById('guessResult').innerText = "الرقم المطلوب أصغر ⬇️";
+      }
+    }
+
+    /* 5. لعبة اختبار السرعة */
+    const quizData = [
+      { q: "ما هي الصلصة الأساسية للشاورما؟", opts: ["ثومية", "كاتشب", "خردل"], a: "ثومية" },
+      { q: "نوع الخبز الشهير للشاورما؟", opts: ["صاج", "توست", "بريوش"], a: "صاج" },
+      { q: "المخلل الأنسب مع الشاورما؟", opts: ["خيار", "جزر", "بصل"], a: "خيار" }
+    ];
+    let quizIdx = 0, quizScoreVal = 0;
+    function initQuiz() {
+      quizIdx = 0; quizScoreVal = 0;
+      showQuizQ();
+    }
+    function showQuizQ() {
+      if(quizIdx >= quizData.length) {
+        document.getElementById('quizQuestion').innerText = "أحسنت! أكملت الاختبار 🎉";
+        document.getElementById('quizOptions').innerHTML = '';
+        return;
+      }
+      const item = quizData[quizIdx];
+      document.getElementById('quizQuestion').innerText = item.q;
+      const optsDiv = document.getElementById('quizOptions');
+      optsDiv.innerHTML = '';
+      item.opts.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'back-btn';
+        btn.innerText = opt;
+        btn.onclick = () => {
+          if(opt === item.a) quizScoreVal += 10;
+          quizIdx++;
+          document.getElementById('quizScore').innerText = `النقاط: ${quizScoreVal}`;
+          showQuizQ();
+        };
+        optsDiv.appendChild(btn);
+      });
+    }
+
+    /* 6. لعبة جامع المكونات */
+    let catcherBasketPos = 50, catcherScoreVal = 0, catcherInterval = null;
+    function startCatcherGame() {
+      clearInterval(catcherInterval);
+      catcherScoreVal = 0;
+      document.getElementById('catcherScore').innerText = "النقاط: 0";
+      catcherInterval = setInterval(spawnCatcherItem, 1200);
+    }
+    function moveBasket(dir) {
+      catcherBasketPos += dir;
+      if(catcherBasketPos < 10) catcherBasketPos = 10;
+      if(catcherBasketPos > 90) catcherBasketPos = 90;
+      document.getElementById('catcherBasket').style.left = catcherBasketPos + '%';
+    }
+    function spawnCatcherItem() {
+      const area = document.getElementById('catcherArea');
+      const item = document.createElement('div');
+      item.className = 'catcher-item';
+      const types = ['🌯', '🥒', '🍟', '💣'];
+      const chosen = types[Math.floor(Math.random() * types.length)];
+      item.innerText = chosen;
+      item.style.left = Math.floor(Math.random() * 80 + 10) + '%';
+      item.style.top = '0px';
+      area.appendChild(item);
+
+      let topPos = 0;
+      let fall = setInterval(() => {
+        topPos += 5;
+        item.style.top = topPos + 'px';
+        if(topPos > 150) {
+          const itemLeft = parseFloat(item.style.left);
+          if(Math.abs(itemLeft - catcherBasketPos) < 15) {
+            if(chosen === '💣') catcherScoreVal -= 10;
+            else catcherScoreVal += 5;
+            document.getElementById('catcherScore').innerText = `النقاط: ${catcherScoreVal}`;
+          }
+          clearInterval(fall);
+          item.remove();
+        }
+      }, 50);
+    }
+
+    /* 7. لعبة ترتيب المكونات (بدون أرقام) */
+    const correctSteps = [
+      "فرد رغيف الخبز 🍞",
+      "دهن الثومية 🧄",
+      "إضافة قطع الدجاج 🍗",
+      "إضافة المخلل والبطاطا 🥒🍟",
+      "لف وتكبيل السندويشة 🌯"
+    ];
+    let userSteps = [];
+
+    function initBuilderGame() {
+      userSteps = [];
+      document.getElementById('builderResult').innerText = "-";
+      document.getElementById('builderDisplay').innerHTML = '<span style="color:#94a3b8; font-size:0.85rem;">السندويشة فارغة الآن.. ابدأ باختيار الخطوة الأولى!</span>';
+
+      // خلط المكونات عشوائياً للأزرار
+      let shuffled = [...correctSteps].sort(() => 0.5 - Math.random());
+      const optsContainer = document.getElementById('builderOptions');
+      optsContainer.innerHTML = '';
+
+      shuffled.forEach(step => {
+        const btn = document.createElement('button');
+        btn.className = 'builder-btn';
+        btn.innerText = step;
+        btn.onclick = () => addBuilderStep(step, btn);
+        optsContainer.appendChild(btn);
+      });
+    }
+
+    function addBuilderStep(step, btn) {
+      const expectedStep = correctSteps[userSteps.length];
+
+      if (step === expectedStep) {
+        userSteps.push(step);
+        btn.style.visibility = 'hidden';
+
+        const display = document.getElementById('builderDisplay');
+        if(userSteps.length === 1) display.innerHTML = '';
+
+        const layer = document.createElement('div');
+        layer.className = 'sandwich-layer';
+        layer.innerText = step;
+        display.appendChild(layer);
+
+        document.getElementById('builderResult').innerText = "خطوة صحيحة! 👏";
+
+        if (userSteps.length === correctSteps.length) {
+          document.getElementById('builderResult').innerText = "🎉 برافو! جهّزت السندويشة بالترتيب المثالي!";
+        }
+      } else {
+        document.getElementById('builderResult').innerText = "❌ الترتيب غير صحيح! حاول اختيار الخطوة الأسبق.";
+      }
+    }
+
+    /* 8. لعبة تحدي التوازن */
+    let balancePos = 50, balanceTimerVal = 0, balanceInterval = null;
+    function startBalanceGame() {
+      clearInterval(balanceInterval);
+      balancePos = 50;
+      balanceTimerVal = 0;
+      balanceInterval = setInterval(() => {
+        balancePos += (Math.random() * 6 - 3);
+        document.getElementById('balancePointer').style.left = balancePos + '%';
+        balanceTimerVal += 0.1;
+        document.getElementById('balanceTimer').innerText = `الصمود: ${balanceTimerVal.toFixed(1)} ثانية`;
+        if(balancePos < 5 || balancePos > 95) {
+          clearInterval(balanceInterval);
+          alert("سقطت السندويشة! 😅 حاول مرة أخرى");
+        }
+      }, 100);
+    }
+    function adjustBalance(dir) {
+      balancePos += dir;
+    }
+
     function sendToWhatsApp() {
       const name = document.getElementById('userName').value.trim();
       let detailsText = "";
 
       for (let i = 1; i <= currentQty; i++) {
         const bread = document.querySelector(`input[name="bread_${i}"]:checked`).value;
-        
-        const addons = Array.from(document.querySelectorAll(`input[name="addons_${i}"]:checked`))
-                          .map(cb => cb.value);
+        const addons = Array.from(document.querySelectorAll(`input[name="addons_${i}"]:checked`)).map(cb => cb.value);
         const addonsText = addons.length > 0 ? addons.join('، ') : 'بدون إضافات';
-
         const garlic = document.querySelector(`input[name="garlic_${i}"]:checked`).value;
 
         detailsText += `%0A🔹 *السندويشة (${i}):*%0A` +
@@ -353,12 +735,14 @@
                        `• الثومية: ${garlic}%0A`;
       }
 
+      const drink = document.querySelector('input[name="drink"]:checked').value;
       const notes = document.getElementById('notes').value.trim() || 'لا يوجد';
 
       const message = `طلب شاورما جديد 🌯✨%0A%0A` +
                       `👤 *الاسم:* ${name}%0A` +
                       `🔢 *عدد السندويشات:* ${currentQty}%0A` +
                       `${detailsText}%0A` +
+                      `🥤 *المشروب:* ${drink}%0A` +
                       `📝 *ملاحظات عامة:* ${notes}`;
 
       const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${message}`;
