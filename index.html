@@ -246,17 +246,16 @@
         <div id="sandwichesContainer"></div>
 
         <div class="section-title" style="font-size: 1.05rem; color: var(--primary);">🥤 اختر المشروب البارد:</div>
-        <div class="option-group" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="option-group" style="grid-template-columns: repeat(2, 1fr);">
           <label><input type="radio" name="drink" value="سفن اب" checked><span>سفن اب 🥤</span></label>
           <label><input type="radio" name="drink" value="بيبسي"><span>بيبسي 🥤</span></label>
-          <label><input type="radio" name="drink" value="ميريندا"><span>ميريندا 🍊</span></label>
         </div>
 
         <div class="section-title" style="font-size: 1rem;">ملاحظات عامة للطلب (اختياري):</div>
         <input type="text" id="notes" class="input-field" placeholder="مثال: كبس زيادة، حمر الخبز...">
 
         <button type="button" class="btn" onclick="sendToWhatsApp()">إرسال الطلب عبر الواتساب 📲</button>
-        <button type="button" class="btn btn-games" onclick="openGames()">العب عقبال ما يجهز الأكل 🎮</button>
+        <button type="button" class="btn btn-games" onclick="openGames()">العب ليجهز الأكل 🎮</button>
       </form>
     </div>
 
@@ -335,7 +334,7 @@
         <button class="back-btn" onclick="startCatcherGame()" style="margin-top:5px;">بدء اللعب</button>
       </div>
 
-      <!-- 7. لعبة ترتيب خطوات السندويشة (بدون أرقام) 🥙 -->
+      <!-- 7. لعبة ترتيب خطوات السندويشة 🥙 -->
       <div id="builderGame" class="game-box">
         <h3>ترتيب خطوات السندويشة 🥙</h3>
         <p style="font-size:0.8rem; margin-bottom: 10px;">اضغطي على المكونات بالترتيب الصحيح لتحضير الشاورما!</p>
@@ -393,17 +392,17 @@
             <div class="sandwich-header">🌯 السندويشة رقم (${i})</div>
             
             <div class="section-title">1. نوع الخبز:</div>
-            <div class="option-group">
-              <label><input type="radio" name="bread_${i}" value="تورتيلا" checked><span>تورتيلا</span></label>
-              <label><input type="radio" name="bread_${i}" value="صاج / شراك"><span>صاج / شراك</span></label>
+            <div class="option-group" style="grid-template-columns: repeat(2, 1fr);">
+              <label><input type="radio" name="bread_${i}" value="صاج / شراك" checked><span>صاج / شراك</span></label>
               <label><input type="radio" name="bread_${i}" value="خبز عادي"><span>خبز عادي</span></label>
             </div>
 
-            <div class="section-title">2. الإضافات:</div>
-            <div class="option-group">
-              <label><input type="checkbox" name="addons_${i}" value="مخلل"><span>مخلل 🥒</span></label>
-              <label><input type="checkbox" name="addons_${i}" value="بطاطا"><span>بطاطا 🍟</span></label>
+            <div class="section-title">2. الإضافات (اضغط لإلغاء ما لا ترغبه):</div>
+            <div class="option-group" style="grid-template-columns: repeat(2, 1fr);">
+              <label><input type="checkbox" name="addons_${i}" value="مخلل" checked><span>مخلل 🥒</span></label>
+              <label><input type="checkbox" name="addons_${i}" value="بطاطا" checked><span>بطاطا 🍟</span></label>
               <label><input type="checkbox" name="addons_${i}" value="دقوس حار"><span>دقوس 🌶️</span></label>
+              <label><input type="checkbox" name="addons_${i}" value="دبس رمان" checked><span>دبس رمان</span></label>
             </div>
 
             <div class="section-title">3. الثومية:</div>
@@ -644,13 +643,13 @@
       }, 50);
     }
 
-    /* 7. لعبة ترتيب المكونات (بدون أرقام) */
+    /* 7. لعبة ترتيب المكونات */
     const correctSteps = [
       "فرد رغيف الخبز 🍞",
       "دهن الثومية 🧄",
       "إضافة قطع الدجاج 🍗",
       "إضافة المخلل والبطاطا 🥒🍟",
-      "لف وتكبيل السندويشة 🌯"
+      "لف وكبس السندويشة 🌯"
     ];
     let userSteps = [];
 
@@ -659,7 +658,6 @@
       document.getElementById('builderResult').innerText = "-";
       document.getElementById('builderDisplay').innerHTML = '<span style="color:#94a3b8; font-size:0.85rem;">السندويشة فارغة الآن.. ابدأ باختيار الخطوة الأولى!</span>';
 
-      // خلط المكونات عشوائياً للأزرار
       let shuffled = [...correctSteps].sort(() => 0.5 - Math.random());
       const optsContainer = document.getElementById('builderOptions');
       optsContainer.innerHTML = '';
@@ -725,13 +723,24 @@
 
       for (let i = 1; i <= currentQty; i++) {
         const bread = document.querySelector(`input[name="bread_${i}"]:checked`).value;
-        const addons = Array.from(document.querySelectorAll(`input[name="addons_${i}"]:checked`)).map(cb => cb.value);
-        const addonsText = addons.length > 0 ? addons.join('، ') : 'بدون إضافات';
+        
+        // فحص الإضافات المحددة
+        const selectedAddons = Array.from(document.querySelectorAll(`input[name="addons_${i}"]:checked`)).map(cb => cb.value);
+        
+        // التحقق تحديداً من دبس الرمان لتوضيح (مع / بدون)
+        const hasPomegranate = selectedAddons.includes('دبس رمان');
+        const pomText = hasPomegranate ? "مع دبس رمان" : "بدون دبس رمان";
+        
+        // المكونات الأخرى المختارة
+        const otherAddons = selectedAddons.filter(item => item !== 'دبس رمان');
+        const otherAddonsText = otherAddons.length > 0 ? otherAddons.join('، ') : 'بدون إضافات أخرى';
+
         const garlic = document.querySelector(`input[name="garlic_${i}"]:checked`).value;
 
         detailsText += `%0A🔹 *السندويشة (${i}):*%0A` +
                        `• الخبز: ${bread}%0A` +
-                       `• الإضافات: ${addonsText}%0A` +
+                       `• دبس الرمان: ${pomText}%0A` +
+                       `• باقي الإضافات: ${otherAddonsText}%0A` +
                        `• الثومية: ${garlic}%0A`;
       }
 
@@ -745,7 +754,7 @@
                       `🥤 *المشروب:* ${drink}%0A` +
                       `📝 *ملاحظات عامة:* ${notes}`;
 
-      const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${message}`;
+      const whatsappUrl = `https://wa.me/${050508953}?text=${message}`;
       window.open(whatsappUrl, '_blank');
     }
   </script>
