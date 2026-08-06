@@ -391,13 +391,19 @@
           <div class="sandwich-card">
             <div class="sandwich-header">🌯 السندويشة رقم (${i})</div>
             
-            <div class="section-title">1. نوع الخبز:</div>
+            <div class="section-title">1. شكل التقديم:</div>
+            <div class="option-group" style="grid-template-columns: repeat(2, 1fr);">
+              <label><input type="radio" name="style_${i}" value="عربي (مقطع)" checked><span>عربي (مقطع) 🍽️</span></label>
+              <label><input type="radio" name="style_${i}" value="سندويشة (كاملة)"><span>سندويشة (كاملة) 🌯</span></label>
+            </div>
+
+            <div class="section-title">2. نوع الخبز:</div>
             <div class="option-group" style="grid-template-columns: repeat(2, 1fr);">
               <label><input type="radio" name="bread_${i}" value="صاج / شراك" checked><span>صاج / شراك</span></label>
               <label><input type="radio" name="bread_${i}" value="خبز عادي"><span>خبز عادي</span></label>
             </div>
 
-            <div class="section-title">2. الإضافات (اضغط لإلغاء ما لا ترغبه):</div>
+            <div class="section-title">3. الإضافات (اضغط لإلغاء ما لا ترغبه):</div>
             <div class="option-group" style="grid-template-columns: repeat(2, 1fr);">
               <label><input type="checkbox" name="addons_${i}" value="مخلل" checked><span>مخلل 🥒</span></label>
               <label><input type="checkbox" name="addons_${i}" value="بطاطا" checked><span>بطاطا 🍟</span></label>
@@ -405,7 +411,7 @@
               <label><input type="checkbox" name="addons_${i}" value="دبس رمان" checked><span>دبس رمان</span></label>
             </div>
 
-            <div class="section-title">3. الثومية:</div>
+            <div class="section-title">4. الثومية:</div>
             <div class="option-group" style="grid-template-columns: 1fr 1fr;">
               <label><input type="radio" name="garlic_${i}" value="مع ثومية" checked><span>مع ثومية 🧄</span></label>
               <label><input type="radio" name="garlic_${i}" value="بدون ثومية"><span>بدون ثومية</span></label>
@@ -722,6 +728,7 @@
       let detailsText = "";
 
       for (let i = 1; i <= currentQty; i++) {
+        const style = document.querySelector(`input[name="style_${i}"]:checked`).value;
         const bread = document.querySelector(`input[name="bread_${i}"]:checked`).value;
         
         // فحص الإضافات المحددة
@@ -738,6 +745,7 @@
         const garlic = document.querySelector(`input[name="garlic_${i}"]:checked`).value;
 
         detailsText += `%0A🔹 *السندويشة (${i}):*%0A` +
+                       `• التقديم: ${style}%0A` +
                        `• الخبز: ${bread}%0A` +
                        `• دبس الرمان: ${pomText}%0A` +
                        `• باقي الإضافات: ${otherAddonsText}%0A` +
